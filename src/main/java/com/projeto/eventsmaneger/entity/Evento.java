@@ -28,7 +28,7 @@ public class Evento {
     private LocalDateTime data_inicio;
     @Column(nullable = false)
     private LocalDateTime data_final;
-    @Column(nullable = false)
+    private double valor;
     private String link_evento;
     private String link_imagem;
     private LocalDateTime created_at;
@@ -41,7 +41,7 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(UUID id, String nome, String descricao, EventoEnum tipo, Date data, String local, LocalDateTime data_inicio, LocalDateTime data_final, String link_evento, String link_imagem, LocalDateTime created_at, LocalDateTime updated_at) {
+    public Evento(UUID id, String nome, String descricao, EventoEnum tipo, Date data, String local, LocalDateTime data_inicio, LocalDateTime data_final, String link_evento, String link_imagem, LocalDateTime created_at, LocalDateTime updated_at, double valor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -50,6 +50,7 @@ public class Evento {
         Local = local;
         this.data_inicio = data_inicio;
         this.data_final = data_final;
+        this.valor = valor;
         this.link_evento = link_evento;
         this.link_imagem = link_imagem;
         this.created_at = created_at;
@@ -119,6 +120,14 @@ public class Evento {
 
     public void setData_final(LocalDateTime data_final) {
         this.data_final = data_final;
+    }
+
+    public void  setValor(double valor){
+        this.valor = valor;
+    }
+
+    public void getValor(){
+        return valor;
     }
 
     public String getLink_evento() {

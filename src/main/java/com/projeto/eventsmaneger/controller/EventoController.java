@@ -1,6 +1,7 @@
 package com.projeto.eventsmaneger.controller;
 
 import com.projeto.eventsmaneger.dto.EventoCreateDTO;
+import com.projeto.eventsmaneger.service.EventoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +11,10 @@ import java.util.UUID;
 @RequestMapping ("/api/v1/evento")
 //http://localhost:8080/api/v1/evento
 public class EventoController {
+    EventoService service;
     @GetMapping("/{id}")
     public EventoCreateDTO findByID(@PathVariable("id")UUID id){
-        return sevice.findById(id);
+        return service.findById(id);
     }
     @GetMapping
     public List<EventoCreateDTO> findAll(){
